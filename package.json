@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev:b": "pnpm --filter backend dev",
     "dev:f": "pnpm --filter frontend dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:b": "pnpm --filter backend watch",
+    "build": "pnpm build:b && pnpm build:f",
+    "build:b": "pnpm --filter backend build",
+    "build:f": "pnpm --filter frontend build"
   },
   "keywords": [],
   "author": "",
