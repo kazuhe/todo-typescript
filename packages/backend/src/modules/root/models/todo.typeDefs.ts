@@ -5,6 +5,6 @@ const typeDefs = `#graphql
     updatedAt: String!
     createdAt: String!
   }
-`
+`;
 
 export default typeDefs;

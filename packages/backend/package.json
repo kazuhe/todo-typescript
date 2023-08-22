@@ -11,7 +11,9 @@
     "start": "node dist/index.js",
     "lint": "eslint --fix 'src/**/*.{js,ts}'",
     "format": "prettier --write 'src/**/*.{js,ts,html,json,gql,graphql}'",
-    "gen": "gql-gen --config codegen.yml"
+    "gen": "gql-gen --config codegen.yml",
+    "gen:db": "prisma migrate dev --name",
+    "gui:db": "prisma studio"
   },
   "keywords": [],
   "author": "",
@@ -19,8 +21,10 @@
   "dependencies": {
     "@apollo/server": "4.3.0",
     "@graphql-tools/merge": "^9.0.0",
+    "@prisma/client": "5.2.0",
     "express": "^4.18.2",
-    "graphql": "^16.6.0"
+    "graphql": "^16.6.0",
+    "prisma": "5.2.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.0",

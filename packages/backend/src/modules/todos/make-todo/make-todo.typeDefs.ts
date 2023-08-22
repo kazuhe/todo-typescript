@@ -10,5 +10,5 @@ const typeDefs = `#graphql
   type Mutation {
     makeTodo(makeTodoInput: MakeTodoInput!): MakeTodoResponse!
   }
-`
+`;
 export default typeDefs;
