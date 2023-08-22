@@ -9,7 +9,8 @@
     "watch:b": "pnpm --filter backend watch",
     "build": "pnpm build:b && pnpm build:f",
     "build:b": "pnpm --filter backend build",
-    "build:f": "pnpm --filter frontend build"
+    "build:f": "pnpm --filter frontend build",
+    "format": "pnpm --filter backend format && pnpm --filter frontend format"
   },
   "keywords": [],
   "author": "",
