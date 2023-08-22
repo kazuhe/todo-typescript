@@ -4,40 +4,12 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import { expressMiddleware } from "@apollo/server/express4";
 import express from "express";
 import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
-
-type MyContext = {
-  req: express.Request;
-  res: express.Response;
-};
-
-/**
- * データ構造と操作の定義
- */
-const typeDefs = `#graphql
-  type Query {
-    greet: String
-  }
-`;
-
-/**
- * データ操作の実装
- */
-const resolvers = {
-  Query: {
-    greet: async (
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      _: unknown,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      args: unknown,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      context: MyContext,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      info: unknown,
-    ) => {
-      return "Hello World!";
-    },
-  },
-};
+import { MyContext } from "./types/graphql.js";
+import greetTypeDefs from "./modules/root/greet/greet.typeDefs.js";
+import greetResolvers from "./modules/root/greet/greet.resolvers.js";
+import makeTodoTypeDefs from "./modules/todos/make-todo/make-todo.typeDefs.js";
+import makeTodoResolvers from "./modules/todos/make-todo/make-todo.resolvers.js";
+import TodoTypeDefs from "./modules/root/models/todo.typeDefs.js";
 
 const main = async () => {
   const PORT = process.env.PORT || 5555;
@@ -45,8 +17,8 @@ const main = async () => {
 
   const httpServer = http.createServer(app);
   const server = new ApolloServer<MyContext>({
-    typeDefs: mergeTypeDefs([typeDefs]),
-    resolvers: mergeResolvers([resolvers]),
+    typeDefs: mergeTypeDefs([greetTypeDefs, makeTodoTypeDefs, TodoTypeDefs]),
+    resolvers: mergeResolvers([greetResolvers, makeTodoResolvers]),
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
 
