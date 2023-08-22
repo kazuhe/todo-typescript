@@ -10,6 +10,7 @@
     "build": "pnpm build:b && pnpm build:f",
     "build:b": "pnpm --filter backend build",
     "build:f": "pnpm --filter frontend build",
+    "lint": "pnpm --filter backend lint && pnpm --filter frontend lint",
     "format": "pnpm --filter backend format && pnpm --filter frontend format"
   },
   "keywords": [],
