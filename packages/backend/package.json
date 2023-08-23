@@ -11,8 +11,8 @@
     "start": "node dist/index.js",
     "lint": "eslint --fix 'src/**/*.{js,ts}'",
     "format": "prettier --write 'src/**/*.{js,ts,html,json,gql,graphql}'",
-    "gen": "gql-gen --config codegen.yml",
-    "gen:db": "prisma migrate dev --name",
+    "gen:gql": "gql-gen --config codegen.yml",
+    "gen:db": "prisma migrate dev --name $name",
     "gui:db": "prisma studio"
   },
   "keywords": [],

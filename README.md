@@ -12,5 +12,5 @@ DATABASE_URL="file:./dev.db"
 マイグレーションを実行する。
 
 ```bash
-pnpm run gen:db -- <NAME>
+pnpm gen:db name=<NAME>
 ```
