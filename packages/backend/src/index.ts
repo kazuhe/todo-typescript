@@ -16,6 +16,8 @@ import getTodosTypeDefs from "./modules/todos/get-todos/get-todos.typeDefs.js";
 import getTodosResolvers from "./modules/todos/get-todos/get-todos.resolvers.js";
 import removeTodoTypeDefs from "./modules/todos/remove-todo/remove-todo.typeDefs.js";
 import removeTodoResolvers from "./modules/todos/remove-todo/remove-todo.resolvers.js";
+import updateTodoTypeDefs from "./modules/todos/update-todo/update-todo.typeDefs.js";
+import updateTodoResolvers from "./modules/todos/update-todo/update-todo.resolvers.js";
 import TodoTypeDefs from "./modules/root/models/todo.typeDefs.js";
 
 const prismaClient = new PrismaClient();
@@ -33,13 +35,15 @@ const main = async () => {
       TodoTypeDefs,
       makeTodoTypeDefs,
       getTodosTypeDefs,
-      removeTodoTypeDefs
+      removeTodoTypeDefs,
+      updateTodoTypeDefs
     ]),
     resolvers: mergeResolvers([
       greetResolvers,
       makeTodoResolvers,
       getTodosResolvers,
-      removeTodoResolvers
+      removeTodoResolvers,
+      updateTodoResolvers
     ]),
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
