@@ -14,3 +14,9 @@ DATABASE_URL="file:./dev.db"
 ```bash
 pnpm gen:db name=<NAME>
 ```
+
+graphql-codegen を利用し、GraphQL のスキーマから TypeScript の型定義ファイルを `packages/backend/src/__generated__/graphql.ts` に生成する。
+
+```bash
+pnpm gen:gql
+```

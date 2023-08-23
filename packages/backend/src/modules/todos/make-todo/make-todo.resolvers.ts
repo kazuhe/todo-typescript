@@ -2,7 +2,7 @@ import { Resolvers } from "../../../__generated__/graphql.js";
 import { MyContext } from "../../../types/graphql.js";
 
 /**
- * データ操作の実装
+ * ToDo を作成する
  */
 const resolvers: Resolvers<MyContext> = {
   Mutation: {
