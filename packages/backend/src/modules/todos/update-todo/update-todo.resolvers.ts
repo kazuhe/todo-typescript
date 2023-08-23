@@ -34,11 +34,7 @@ const resolvers: Resolvers<MyContext> = {
       },)
 
       return {
-        todo: {
-          ...existingTodo,
-          updatedAt: existingTodo.updatedAt.toISOString(),
-          createdAt: existingTodo.updatedAt.toISOString(),
-        }
+        todo: existingTodo
       }
     }
   },

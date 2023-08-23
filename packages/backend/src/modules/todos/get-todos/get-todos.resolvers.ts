@@ -11,11 +11,7 @@ const resolvers: Resolvers<MyContext> = {
       const todos = await prismaClient.todo.findMany();
 
       return {
-        todos: todos.map((todo) => ({
-          ...todo,
-          updatedAt: todo.updatedAt.toISOString(),
-          createdAt: todo.updatedAt.toISOString(),
-        })),
+        todos
       };
     },
   },

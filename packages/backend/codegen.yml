@@ -3,6 +3,9 @@ schema: "http://localhost:5555/graphql"
 documents: null
 generates:
   src/__generated__/graphql.ts:
+    config:
+      scalars:
+        DateTime: "Date"
     plugins:
       - "typescript"
       - "typescript-resolvers"

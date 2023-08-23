@@ -15,11 +15,7 @@ const resolvers: Resolvers<MyContext> = {
       });
 
       return {
-        todo: {
-          ...newTodo,
-          updatedAt: newTodo.updatedAt.toISOString(),
-          createdAt: newTodo.updatedAt.toISOString(),
-        },
+        todo: newTodo
       };
     },
   },

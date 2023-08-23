@@ -21,6 +21,8 @@ import removeTodoResolvers from "./modules/todos/remove-todo/remove-todo.resolve
 import updateTodoTypeDefs from "./modules/todos/update-todo/update-todo.typeDefs.js";
 import updateTodoResolvers from "./modules/todos/update-todo/update-todo.resolvers.js";
 import TodoTypeDefs from "./modules/root/models/todo.typeDefs.js";
+import datetimeTypeDefs from "./modules/root/scalars/datetime/datetime.typeDefs.js";
+import datetimeResolvers from "./modules/root/scalars/datetime/datetime.resolvers.js";
 
 const prismaClient = new PrismaClient();
 
@@ -39,7 +41,8 @@ const main = async () => {
       getTodoTypeDefs,
       getTodosTypeDefs,
       removeTodoTypeDefs,
-      updateTodoTypeDefs
+      updateTodoTypeDefs,
+      datetimeTypeDefs
     ]),
     resolvers: mergeResolvers([
       greetResolvers,
@@ -47,7 +50,8 @@ const main = async () => {
       getTodoResolvers,
       getTodosResolvers,
       removeTodoResolvers,
-      updateTodoResolvers
+      updateTodoResolvers,
+      datetimeResolvers
     ]),
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });

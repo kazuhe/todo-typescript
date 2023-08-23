@@ -3,8 +3,8 @@ const typeDefs = `#graphql
     id: String!
     title: String!
     isCompleted: Boolean!
-    updatedAt: String!
-    createdAt: String!
+    updatedAt: DateTime!
+    createdAt: DateTime!
   }
 `;
 
