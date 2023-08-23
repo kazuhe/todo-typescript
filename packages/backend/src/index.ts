@@ -4,6 +4,7 @@ import { ApolloServer } from "@apollo/server";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import { expressMiddleware } from "@apollo/server/express4";
 import express from "express";
+import cors from "cors";
 import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
 import { PrismaClient } from "@prisma/client";
 
@@ -57,6 +58,10 @@ const main = async () => {
   });
 
   await server.start();
+
+  app.use(cors({
+    origin: ["http://localhost:3000"],
+  }));
 
   app.use(express.json());
 
